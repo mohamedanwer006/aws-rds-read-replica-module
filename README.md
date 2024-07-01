@@ -17,7 +17,7 @@ module "rds" {
   subnet_ids        = module.vpc.public_subnets
   engine            = "mysql"
   engine_version    = "8.0"
-  readers_db_name = local.read_replicas
+  readers_db_name = ["reader1","reader2","reader3"]
 }
 
 ```

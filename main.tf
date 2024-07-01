@@ -15,7 +15,7 @@ module "vpc" {
 }
 
 locals {
-  read_replicas = toset(["reader1","reader2","reader3"])
+  read_replicas = toset(["reader1", "reader2", "reader3"])
 }
 
 
@@ -31,7 +31,7 @@ module "rds" {
   subnet_ids        = module.vpc.public_subnets
   engine            = "mysql"
   engine_version    = "8.0"
-  readers_db_name = local.read_replicas
+  readers_db_name   = ["reader1", "reader2", "reader3"]
 }
 
 resource "aws_kms_key" "db_secret" {
